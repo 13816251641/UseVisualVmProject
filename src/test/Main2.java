@@ -1,10 +1,16 @@
+package test;
+
 import java.util.HashMap;
 import java.util.Map;
 
-public class Main {
+/**
+ * TestMemory和map变量引用的HashMap类会被gc回收,
+ * 因为我在代码里加了map = null;
+ */
+public class Main2 {
 
     /*声明缓存对象*/
-    private static final Map map = new HashMap();
+    private static Map map = new HashMap();
 
     public static void main(String[] args) {
         try {
@@ -49,6 +55,7 @@ public class Main {
             map.put("key"+i,t);
         }
         System.out.println("forth");
+        map = null;
         try {
             Thread.sleep(Integer.MAX_VALUE);
         } catch (InterruptedException e) {
