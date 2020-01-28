@@ -4,8 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * map是方法内部变量,TestMemory和map变量引用的HashMap类会被gc回收,
- * 因为我在代码里加了map = null;
+ * map是方法内部变量,即使没有加 map = null;gc也会在old gen没有空间
+ * 的时候回收掉TestMemory对象以及map变量所指向的HashMap类,因为没有
+ * 引用指向它们了!!!
  */
 public class Main4 {
 

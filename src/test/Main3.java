@@ -4,7 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
-   map是方法内部变量,gc不会回收
+ * map是方法内部变量,即使没有加 map = null;gc也会在old gen没有空间
+ * 的时候回收掉TestMemory对象以及map变量所指向的HashMap类,因为没有
+ * 引用指向它们了!!!
  */
 public class Main3 {
 
@@ -52,7 +54,7 @@ public class Main3 {
             map.put("key"+i,t);
         }
         System.out.println("forth");
-        //map=null;
+        map = null;
         try {
             Thread.sleep(Integer.MAX_VALUE);
         } catch (InterruptedException e) {

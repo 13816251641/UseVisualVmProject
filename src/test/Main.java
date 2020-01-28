@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * TestMemory对象一直不会被gc回收掉,因为存在
- * map对它的强引用
+ * map是静态变量,除非我指定map = null,TestMemory实例和map变量引用
+ * 的HashMap类才会被gc回收
  */
 public class Main {
 

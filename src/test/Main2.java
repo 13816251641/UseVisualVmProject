@@ -4,8 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * TestMemory和map变量引用的HashMap类会被gc回收,
- * 因为我在代码里加了map = null;
+ * map是静态变量,除非我指定map = null,TestMemory实例和map变量引用
+ * 的HashMap类才会被gc回收
+ *
  */
 public class Main2 {
 
